@@ -1,0 +1,48 @@
+<div class="login-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="login-card">
+    <div class="brand">
+      <div class="logo-badge">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="3" y="18" width="22" height="3" rx="1.5" fill="white"/>
+          <rect x="6" y="22" width="16" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+          <polygon points="14,5 20,16 8,16" fill="white"/>
+          <circle cx="9" cy="11" r="2" fill="rgba(255,255,255,0.6)"/>
+          <circle cx="19" cy="11" r="2" fill="rgba(255,255,255,0.6)"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">Festival Logistics</span>
+          <span class="logo-sub">GESTIÓN DE EVENTOS</span>
+        </div>
+      </div>
+      <p class="brand-subtitle">Inicia sesión para continuar</p>
+    </div>
+
+    <div class="field">
+      <label>USUARIO</label>
+      <input type="text" placeholder="Ingresa tu usuario" [(ngModel)]="username" />
+    </div>
+
+    <div class="field">
+      <label>CONTRASEÑA</label>
+      <input type="password" placeholder="••••••••" [(ngModel)]="password" />
+    </div>
+
+    <button class="btn-main" (click)="login()">Iniciar Sesión</button>
+
+    <div class="divider">
+      <hr/><span>o</span><hr/>
+    </div>
+
+    <p class="register-link">¿Eres nuevo? <a href="#">Regístrate</a></p>
+
+    <div class="dots">
+      <div class="dot" style="background:#7c3aed"></div>
+      <div class="dot" style="background:#a855f7"></div>
+      <div class="dot" style="background:#db2777"></div>
+    </div>
+  </div>
+</div>

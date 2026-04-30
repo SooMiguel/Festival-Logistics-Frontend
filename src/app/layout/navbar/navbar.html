@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <div class="logo-badge">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <rect x="3" y="18" width="22" height="3" rx="1.5" fill="white"/>
+        <rect x="6" y="22" width="16" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+        <polygon points="14,5 20,16 8,16" fill="white"/>
+        <circle cx="9" cy="11" r="2" fill="rgba(255,255,255,0.6)"/>
+        <circle cx="19" cy="11" r="2" fill="rgba(255,255,255,0.6)"/>
+      </svg>
+      <span>Festival Logistics</span>
+    </div>
+  </div>
+
+  <div class="navbar-links">
+    <a routerLink="/dashboard" routerLinkActive="active">Inicio</a>
+    <a routerLink="/artistas" routerLinkActive="active">Artistas</a>
+    <a routerLink="/escenarios" routerLinkActive="active">Escenarios</a>
+    <a routerLink="/equipos" routerLinkActive="active">Equipos</a>
+  </div>
+
+  <button class="btn-logout" (click)="logout()">Cerrar sesión</button>
+</nav>

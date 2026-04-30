@@ -1,0 +1,85 @@
+.dashboard-bg {
+  min-height: calc(100vh - 57px);
+  background: #0d0d1f;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+.blob1 { width: 400px; height: 400px; background: #7c3aed; top: -100px; left: -100px; }
+.blob2 { width: 350px; height: 350px; background: #db2777; bottom: -100px; right: -100px; }
+
+.dashboard-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.welcome h1 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.welcome p {
+  color: #aaaaaa;
+  font-size: 16px;
+  margin: 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: rgba(124, 58, 237, 0.15);
+  border-color: #7c3aed;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.card p {
+  color: #aaaaaa;
+  font-size: 14px;
+  margin: 0;
+}
