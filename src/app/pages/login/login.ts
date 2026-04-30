@@ -28,6 +28,7 @@ export class Login {
   constructor(private router: Router) {}
 
   login() {
-    this.router.navigate(['/dashboard']);
-  }
+  localStorage.setItem('token', 'logged');
+  this.router.navigate(['/dashboard']);
+}
 }
