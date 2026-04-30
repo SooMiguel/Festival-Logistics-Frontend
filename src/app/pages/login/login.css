@@ -69,6 +69,12 @@
 .field input:focus { border-color: #7c3aed; }
 .field input::placeholder { color: #bbbbbb; }
 
+.error-msg {
+  color: #db2777;
+  font-size: 13px;
+  text-align: center;
+  margin: 0 0 10px;
+}
 .btn-main {
   width: 100%;
   padding: 13px;
