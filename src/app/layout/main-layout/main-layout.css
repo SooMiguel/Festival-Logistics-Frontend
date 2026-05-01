@@ -1,0 +1,95 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+  background-color: #0a0a0c; /* Fondo oscuro base para todo */
+  color: white;
+}
+
+.sidebar {
+  width: 260px; /* O el ancho que prefieras */
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Seguridad extra */
+  background: linear-gradient(180deg, #12122b 0%, #050505 100%);
+}
+.logo-section {
+  margin-bottom: 40px;
+  /* Aquí tu app-navbar se verá contenido */
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.menu-links a {
+  color: #888;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.menu-links a:hover, .menu-links a.active {
+  background: rgba(138, 43, 226, 0.1);
+  color: #bc13fe; /* Tu morado neón */
+  box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2);
+}
+
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top right, #1a1a2e, #050505);
+}
+
+.top-header {
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.top-header input {
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 300px;
+  outline: none;
+}
+
+.top-header input:focus {
+  border-color: #bc13fe;
+}
+
+.page-body {
+  flex: 1;
+  padding: 1.5rem;
+  background: #050505;
+  overflow-y: auto;
+  height: calc(100vh - 70px);
+}
+.logout-btn {
+  background: transparent;
+  border: 1px solid #ff4b2b;
+  color: #ff4b2b;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #ff4b2b;
+  color: white;
+}
+
