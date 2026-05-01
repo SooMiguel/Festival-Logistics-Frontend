@@ -1,9 +1,43 @@
+/* Importamos la tipografía Montserrat para ese look industrial y grueso */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
-/* src/styles.css */
+:root {
+  /* Paleta Oficial Ultra Music Festival */
+  --bg-black: #000000;
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --cyan-laser: #00f0ff;
+  --cyan-hover: #00c4d1;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --border-color: #222222;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  background-color: var(--bg-black);
+  color: var(--text-main);
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden; 
+}
+
+/* --- CLASES REUTILIZABLES PARA EL EQUIPO --- */
+.btn-ultra {
+  background-color: transparent;
+  color: var(--cyan-laser);
+  border: 1px solid var(--cyan-laser);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ultra:hover {
+  background-color: var(--cyan-laser);
+  color: var(--bg-black);
+  box-shadow: 0 0 15px var(--cyan-laser);
 }

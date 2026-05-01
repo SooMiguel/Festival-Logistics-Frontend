@@ -1,17 +1,39 @@
-<div class="layout-container">
-  <aside class="sidebar">
-    <div class="logo-section">
-      <app-navbar></app-navbar> 
+<div class="layout-container" style="display: flex; height: 100vh;">
+  
+  <!-- SIDEBAR (MENÚ LATERAL) -->
+  <aside class="sidebar" style="width: 250px; background-color: var(--bg-dark); border-right: 1px solid var(--border-color); display: flex; flex-direction: column;">
+    
+    <div class="logo-section" style="padding: 25px; text-align: center; border-bottom: 1px solid var(--border-color);">
+      <h2 style="color: var(--cyan-laser); margin: 0; font-weight: 900; letter-spacing: 2px;">ULTRA LOGISTICS</h2>
+    </div>
+
+    <!-- ENLACES DE NAVEGACIÓN REALES -->
+    <nav style="display: flex; flex-direction: column; padding: 20px 0;">
+      <!-- El routerLinkActive le pone color al menú que esté seleccionado -->
+      <a routerLink="/dashboard" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Inicio</a>
+      <a routerLink="/presentaciones" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Presentaciones</a>
+      <a routerLink="/artistas" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Artistas</a>
+      <a routerLink="/escenarios" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Escenarios</a>
+      <a routerLink="/equipos" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Equipos</a>
+      <a routerLink="/usuarios" routerLinkActive="active" style="color: var(--text-main); padding: 15px 25px; text-decoration: none; text-transform: uppercase; font-weight: bold;">Usuarios</a>
+    </nav>
+
+    <div style="margin-top: auto; padding: 20px;">
+        <button class="btn-ultra" style="width: 100%;">Cerrar Sesión</button>
     </div>
   </aside>
 
-  <main class="content-wrapper">
-    <header class="top-header">
-       <input type="text" placeholder="Buscar...">
+  <!-- CONTENIDO PRINCIPAL A LA DERECHA -->
+  <main class="content-wrapper" style="flex: 1; display: flex; flex-direction: column; background-color: var(--bg-black);">
+    
+    <header class="top-header" style="padding: 15px 30px; border-bottom: 1px solid var(--border-color);">
+       <input type="text" placeholder="Búsqueda global..." style="background: var(--bg-card); border: 1px solid var(--border-color); color: white; padding: 10px 15px; width: 300px; outline: none;">
     </header>
 
-    <section class="page-body">
+    <section class="page-body" style="padding: 30px; overflow-y: auto;">
+      <!-- AQUÍ ES DONDE ANGULAR INYECTA LAS PÁGINAS -->
       <router-outlet></router-outlet>
     </section>
   </main>
+
 </div>
