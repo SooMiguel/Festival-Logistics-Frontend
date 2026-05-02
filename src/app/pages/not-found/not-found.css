@@ -1,0 +1,70 @@
+.error-terminal {
+  background: #0a0a0a;
+  color: #00ffcc;
+  padding: 20px;
+  font-family: monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  border: 2px solid #ff4444;
+  border-radius: 10px;
+  background: #111;
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  color: #ff4444;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.error-title {
+  font-size: 24px;
+  color: #ff4444;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.error-subtitle {
+  font-size: 18px;
+  color: #ff8888;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.error-message {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.btn-return {
+  display: inline-block;
+  background: #00ffcc;
+  color: #0a0a0a;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-return:hover {
+  background: #00ccaa;
+  transform: scale(1.02);
+}
