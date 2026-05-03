@@ -1,1 +1,67 @@
-<p>equipos works!</p>
+<div class="equipment-terminal">
+  
+  <div class="header">
+    <h1>CONTROL DE ESCENARIO & EQUIPOS</h1>
+    <h2>INVENTARIO DE EQUIPOS</h2>
+    <button class="btn-add" (click)="abrirFormulario()">+ AGREGAR EQUIPO</button>
+  </div>
+
+<button (click)="cargarEquipos()" class="btn-refresh">Recargar</button>
+<br>
+<br>
+
+  <div class="form-overlay" [style.display]="mostrarFormulario ? 'flex' : 'none'">
+    <div class="form-card">
+      <h3>{{ editando ? 'EDITAR EQUIPO' : 'NUEVO EQUIPO' }}</h3>
+      <input [(ngModel)]="formulario.tipo" placeholder="Tipo (ej: Sonido, Luces)" />
+      <input [(ngModel)]="formulario.descripcion" placeholder="Descripción" />
+      <input type="number" [(ngModel)]="formulario.cantidadDisponible" placeholder="Cantidad Disponible" />
+      <div class="form-buttons">
+        <button type="button" class="btn-confirm" (click)="guardarEquipo()">GUARDAR</button>
+        <button type="button" class="btn-cancel" (click)="cerrarFormulario()">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-label">UNIDADES DE EQUIPO</span>
+      <span class="stat-value">{{ totalUnidades }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">TIPOS DE EQUIPO</span>
+      <span class="stat-value">{{ totalEquipos }}</span>
+    </div>
+    <div class="stat-card warning">
+      <span class="stat-label">STOCK BAJO</span>
+      <span class="stat-value">{{ bajoStock }}</span>
+    </div>
+  </div>
+
+  <div class="assets-table">
+    <h3>TODOS LOS EQUIPOS</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TIPO</th>
+          <th>DESCRIPCIÓN</th>
+          <th>CANTIDAD</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipo of equipos">
+          <td>EQ-{{ equipo.idEquipo }}</td>
+          <td>{{ equipo.tipo }}</td>
+          <td>{{ equipo.descripcion }}</td>
+          <td [class.low-stock]="equipo.cantidadDisponible < 5">{{ equipo.cantidadDisponible }} unidades</td>
+          <td>
+            <button (click)="editarEquipo(equipo)" class="btn-edit">EDITAR</button>
+            <button (click)="eliminarEquipo(equipo.idEquipo)" class="btn-delete">ELIMINAR</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

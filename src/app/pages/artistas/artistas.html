@@ -1,1 +1,53 @@
-<p>artistas works!</p>
+<div class="management-terminal">
+  
+  <div class="header">
+    <h1>TERMINAL DE GESTIÓN</h1>
+    <h2>LISTA DE ARTISTAS</h2>
+    <button class="btn-add" (click)="abrirFormulario()">+ AGREGAR ARTISTA</button>
+  </div>
+  
+<button (click)="cargarArtistas()" class="btn-refresh">Recargar</button>
+
+
+
+  <div class="form-overlay" [style.display]="mostrarFormulario ? 'flex' : 'none'">
+    <div class="form-card">
+      <h3>{{ editando ? 'EDITAR ARTISTA' : 'NUEVO ARTISTA' }}</h3>
+      <input [(ngModel)]="formulario.nombre" placeholder="Nombre del Artista" />
+      <select [(ngModel)]="formulario.generoMusical">
+        <option [value]="''" disabled selected>SELECCIONAR GÉNERO</option>
+        <option *ngFor="let genre of generosUnicos" [value]="genre">{{ genre }}</option>
+      </select>
+      <input [(ngModel)]="formulario.riderTecnico" placeholder="Rider Técnico" />
+      <div class="form-buttons">
+        <button type="button" class="btn-cancel" (click)="cerrarFormulario()">CANCELAR</button>
+        <button type="button" class="btn-confirm" (click)="guardarArtista()">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="genre-grid">
+    <div *ngFor="let genre of generosUnicos" class="genre-card">
+      <h3 class="genre-title">{{ genre }}</h3>
+      <div *ngFor="let artista of getArtistasPorGenero(genre)" class="artist-item">
+        <span class="artist-name">{{ artista.nombre }}</span>
+        <span class="artist-stage">📋 {{ artista.riderTecnico }}</span>
+        <div class="artist-actions">
+          <button (click)="editarArtista(artista)" class="btn-edit">EDITAR</button>
+          <button (click)="eliminarArtista(artista.idArtista)" class="btn-delete">ELIMINAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-footer">
+    <div class="stat">
+      <span class="stat-label">TOTAL ARTISTAS ACTIVOS</span>
+      <span class="stat-value">{{ artistas.length }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">ESCENARIOS CONFIGURADOS</span>
+      <span class="stat-value">{{ stagesCount }}</span>
+    </div>
+  </div>
+</div>

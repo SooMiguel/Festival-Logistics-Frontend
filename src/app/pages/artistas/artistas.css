@@ -1,0 +1,253 @@
+.management-terminal {
+  background: #0a0a0a;
+  color: #00ffcc;
+  padding: 20px;
+  font-family: monospace;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #00ffcc;
+  padding-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.header h2 {
+  font-size: 22px;
+  color: #00ccaa;
+}
+
+.btn-add {
+  background: #00ffcc;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background: #00ccaa;
+  transform: scale(1.02);
+}
+
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.genre-card {
+  background: #111;
+  border: 1px solid #00ffcc;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.genre-title {
+  color: #00ffcc;
+  border-bottom: 1px solid #00ffcc;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.artist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+  gap: 8px;
+}
+
+.artist-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.artist-stage {
+  font-size: 11px;
+  color: #00ccaa;
+}
+
+.artist-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-card {
+  background: #1a1a1a;
+  border: 2px solid #00ffcc;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.form-card h3 {
+  color: #00ffcc;
+  margin-bottom: 20px;
+}
+
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #2a2a2a;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  font-family: monospace;
+  border-radius: 4px;
+}
+
+.form-card select option {
+  background: #1a1a1a;
+  color: #00ffcc;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stats-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #00ffcc;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+/* ===== BOTONES ===== */
+.btn-confirm {
+  background: #00ffcc;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-confirm:hover {
+  background: #00ccaa;
+  transform: scale(1.02);
+}
+
+.btn-cancel {
+  background: #333;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-cancel:hover {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+.btn-edit {
+  background: #1a1a1a;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+  background: #00ffcc;
+  color: #0a0a0a;
+}
+
+.btn-delete {
+  background: #1a1a1a;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Botón Recargar */
+.btn-refresh {
+  background: #1a1a1a;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin: 10px 0 10px 10px;
+}
+
+.btn-refresh:hover {
+  background: #00ffcc;
+  color: #0a0a0a;
+  transform: scale(1.02);
+}

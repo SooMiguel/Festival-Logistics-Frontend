@@ -1,0 +1,163 @@
+.equipment-terminal { background: #0a0a0a; color: #00ffcc; padding: 20px; font-family: monospace; }
+.header { text-align: center; border-bottom: 2px solid #00ffcc; padding-bottom: 20px; margin-bottom: 30px; }
+.btn-add { background: #00ffcc; color: #0a0a0a; border: none; padding: 10px 20px; cursor: pointer; }
+.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 30px; }
+.stat-card { background: #111; border: 1px solid #00ffcc; border-radius: 8px; padding: 20px; text-align: center; }
+.stat-card.warning { border-color: #ff6600; }
+.stat-value { font-size: 42px; font-weight: bold; color: #00ffcc; }
+.stat-card.warning .stat-value { color: #ff6600; }
+.assets-table { background: #111; border: 1px solid #00ffcc; border-radius: 8px; padding: 20px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid #333; }
+th { color: #00ffcc; }
+.low-stock { color: #ff6600; }
+.form-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; }
+.form-card { background: #1a1a1a; border: 2px solid #00ffcc; padding: 30px; border-radius: 10px; width: 400px; }
+.form-card input { width: 100%; padding: 10px; margin: 10px 0; background: #2a2a2a; border: 1px solid #00ffcc; color: white; }
+.form-buttons { display: flex; gap: 10px; }
+.form-buttons button { flex: 1; padding: 10px; background: #00ffcc; cursor: pointer; }
+
+/* Estilos para los botones de acción en la tabla de equipment */
+.assets-table td:last-child {
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Botones de acción mejorados */
+.assets-table .btn-edit {
+  background: #1a1a1a;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.assets-table .btn-edit:hover {
+  background: #00ffcc;
+  color: #0a0a0a;
+}
+
+.assets-table .btn-delete {
+  background: #1a1a1a;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.assets-table .btn-delete:hover {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+/* Botones del formulario mejorados */
+.form-buttons .btn-confirm {
+  background: #00ffcc;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.form-buttons .btn-confirm:hover {
+  background: #00ccaa;
+  transform: scale(1.02);
+}
+
+.form-buttons .btn-cancel {
+  background: #333;
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.form-buttons .btn-cancel:hover {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+/* Select en el formulario */
+.form-card select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #2a2a2a;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  font-family: monospace;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-card select option {
+  background: #1a1a1a;
+  color: #00ffcc;
+}
+
+
+/* Botón Recargar */
+.btn-refresh {
+  background: #1a1a1a;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin: 10px 0 10px 10px;
+}
+
+.btn-refresh:hover {
+  background: #00ffcc;
+  color: #0a0a0a;
+  transform: scale(1.02);
+}
+
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .assets-table td:last-child {
+    white-space: normal;
+  }
+  
+  .assets-table .btn-edit,
+  .assets-table .btn-delete {
+    display: inline-block;
+    margin: 2px;
+  }
+  
+  .form-card {
+    width: 90%;
+    margin: 0 10px;
+  }
+}

@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { Navbar } from '../navbar/navbar';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { RouterOutlet, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
@@ -9,20 +8,26 @@ import { Navbar } from '../navbar/navbar';
   imports: [
     RouterOutlet,
     CommonModule,
-    Navbar
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })
 export class MainLayout {
   isSidebarCollapsed = false;
+  private platformId = inject(PLATFORM_ID);  // ← AGREGAR ESTA LÍNEA
+
   constructor(private router: Router) {}
 
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
 
-  logout() {
+  cerrarSesion() {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('token');
+    }
     this.router.navigate(['/login']);
   }
 }

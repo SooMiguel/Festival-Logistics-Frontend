@@ -1,1 +1,93 @@
-<p>presentaciones works!</p>
+
+<div class="lineup-terminal">
+  
+  <div class="header">
+    <h1>LINEUP / CRONOGRAMA</h1>
+    <h2>PRESENTACIONES</h2>
+    <button class="btn-add" (click)="abrirFormulario()">+ NUEVA PRESENTACIÓN</button>
+  </div>
+
+<button (click)="cargarPresentaciones()" class="btn-refresh">Recargar</button>
+
+  <!-- FORMULARIO -->
+  <div class="form-overlay" [style.display]="mostrarFormulario ? 'flex' : 'none'">
+    <div class="form-card">
+      <h3>{{ editando ? 'EDITAR PRESENTACIÓN' : 'NUEVA PRESENTACIÓN' }} // SYSTEM_INIT</h3>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>ARTISTA / IDENTIFICADOR</label>
+          <select [(ngModel)]="formulario.artistaId">
+            <option [value]="0">SELECCIONAR ARTISTA</option>
+            <option *ngFor="let artista of artistas" [value]="artista.idArtista">
+              {{ artista.nombre }} ({{ artista.generoMusical }})
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ESCENARIO / UBICACIÓN</label>
+          <select [(ngModel)]="formulario.escenarioId">
+            <option [value]="0">SELECCIONAR ESCENARIO</option>
+            <option *ngFor="let escenario of escenarios" [value]="escenario.idEscenario">
+              {{ escenario.nombre }} (Cap: {{ escenario.capacidad }})
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>FECHA DEL SET</label>
+          <input type="date" [(ngModel)]="formulario.fechaPresentacion" />
+        </div>
+        <div class="form-group">
+          <label>HORA INICIO</label>
+          <input type="time" [(ngModel)]="formulario.horaInicio" />
+        </div>
+        <div class="form-group">
+          <label>HORA CIERRE</label>
+          <input type="time" [(ngModel)]="formulario.horaFin" />
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" class="btn-cancel" (click)="cerrarFormulario()">CANCELAR</button>
+        <button type="button" class="btn-confirm" (click)="guardarPresentacion()">CONFIRMAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DE PRESENTACIONES -->
+  <div class="lineup-table">
+    <h3>LINEUP // SCHEDULE</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>FECHA</th>
+          <th>HORA INICIO</th>
+          <th>HORA FIN</th>
+          <th>ARTISTA</th>
+          <th>GÉNERO</th>
+          <th>ESCENARIO</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of presentaciones">
+          <td>{{ p.idPresentacion }}</td>
+          <td>{{ p.fechaPresentacion }}</td>
+          <td>{{ p.horaInicio }}</td>
+          <td>{{ p.horaFin }}</td>
+          <td>{{ p.artistaNombre || getNombreArtista(p.artistaId) }}</td>
+          <td>{{ p.artistaGenero || getGeneroArtista(p.artistaId) }}</td>
+          <td>{{ p.escenarioNombre || getNombreEscenario(p.escenarioId) }}</td>
+          <td>
+            <button (click)="editarPresentacion(p)" class="btn-edit">Editar</button>
+            <button (click)="eliminarPresentacion(p.idPresentacion)" class="btn-delete">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
