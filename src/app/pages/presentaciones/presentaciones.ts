@@ -110,67 +110,72 @@ export class LineupComponent implements OnInit {
   }
 
   guardarPresentacion(): void {
-    if (!this.formulario.artistaId || !this.formulario.escenarioId) {
-      alert('Debe seleccionar artista y escenario');
-      return;
-    }
-
-    if (!this.formulario.fechaPresentacion || !this.formulario.horaInicio || !this.formulario.horaFin) {
-      alert('Debe completar fecha, hora inicio y hora fin');
-      return;
-    }
-
-    const artistaSeleccionado = this.artistas.find(a => a.idArtista === Number(this.formulario.artistaId));
-    const escenarioSeleccionado = this.escenarios.find(e => e.idEscenario === Number(this.formulario.escenarioId));
-
-    if (!artistaSeleccionado || !escenarioSeleccionado) {
-      alert('Error: Artista o Escenario no encontrado');
-      return;
-    }
-
-    const payload = {
-      artista: {
-        idArtista: artistaSeleccionado.idArtista,
-        nombre: artistaSeleccionado.nombre,
-        generoMusical: artistaSeleccionado.generoMusical,
-        riderTecnico: artistaSeleccionado.riderTecnico
-      },
-      escenario: {
-        idEscenario: escenarioSeleccionado.idEscenario,
-        nombre: escenarioSeleccionado.nombre,
-        capacidad: escenarioSeleccionado.capacidad
-      },
-      fechaPresentacion: this.formulario.fechaPresentacion,
-      horaInicio: this.formulario.horaInicio,
-      horaFin: this.formulario.horaFin
-    };
-
-    this.cerrarFormulario();
-
-    if (this.editando && this.presentacionSeleccionada) {
-      this.presentacionService.actualizarPresentacion(this.presentacionSeleccionada.idPresentacion, payload).subscribe({
-        next: () => {
-          this.cargarPresentaciones();
-          this.cerrarFormulario();
-        },
-        error: (err) => {
-          console.error('Error al actualizar:', err);
-          alert('Error al actualizar la presentación');
-        }
-      });
-    } else {
-      this.presentacionService.crearPresentacion(payload).subscribe({
-        next: () => {
-          this.cargarPresentaciones();
-          this.cerrarFormulario();
-        },
-        error: (err) => {
-          console.error('Error al crear:', err);
-          alert('Error al crear la presentación');
-        }
-      });
-    }
+  // 1. Validaciones iniciales
+  if (!this.formulario.artistaId || !this.formulario.escenarioId) {
+    alert('Debe seleccionar artista y escenario');
+    return;
   }
+
+  if (!this.formulario.fechaPresentacion || !this.formulario.horaInicio || !this.formulario.horaFin) {
+    alert('Debe completar fecha, hora inicio y hora fin');
+    return;
+  }
+
+  const artistaSeleccionado = this.artistas.find(a => a.idArtista === Number(this.formulario.artistaId));
+  const escenarioSeleccionado = this.escenarios.find(e => e.idEscenario === Number(this.formulario.escenarioId));
+
+  if (!artistaSeleccionado || !escenarioSeleccionado) {
+    alert('Error: Artista o Escenario no encontrado');
+    return;
+  }
+
+  // 2. Construcción del payload
+  const payload = {
+    artista: {
+      idArtista: artistaSeleccionado.idArtista,
+      nombre: artistaSeleccionado.nombre,
+      generoMusical: artistaSeleccionado.generoMusical,
+      riderTecnico: artistaSeleccionado.riderTecnico
+    },
+    escenario: {
+      idEscenario: escenarioSeleccionado.idEscenario,
+      nombre: escenarioSeleccionado.nombre,
+      capacidad: escenarioSeleccionado.capacidad
+    },
+    fechaPresentacion: this.formulario.fechaPresentacion,
+    horaInicio: this.formulario.horaInicio,
+    horaFin: this.formulario.horaFin
+  };
+
+  // 3. Ejecución (Crear o Editar)
+  if (this.editando && this.presentacionSeleccionada) {
+    // MODO EDICIÓN
+    this.presentacionService.actualizarPresentacion(this.presentacionSeleccionada.idPresentacion, payload).subscribe({
+      next: () => {
+        console.log('Actualización exitosa');
+        this.cargarPresentaciones(); // Refresca la lista
+        this.cerrarFormulario();     // Cierra el formulario
+      },
+      error: (err) => {
+        console.error('Error al actualizar:', err);
+        alert('Error al actualizar la presentación');
+      }
+    });
+  } else {
+    // MODO CREACIÓN
+    this.presentacionService.crearPresentacion(payload).subscribe({
+      next: () => {
+        console.log('Creación exitosa');
+        this.cargarPresentaciones(); // Refresca la lista
+        this.cerrarFormulario();     // Cierra el formulario
+      },
+      error: (err) => {
+        console.error('Error al crear:', err);
+        alert('Error al crear la presentación');
+      }
+    });
+  }
+}
 
   editarPresentacion(presentacion: any): void {
     this.editando = true;
